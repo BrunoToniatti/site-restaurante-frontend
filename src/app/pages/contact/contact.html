@@ -1,0 +1,165 @@
+<!-- Navbar -->
+<app-navebar></app-navebar>
+
+<!-- Contact Section -->
+<section class="contact-section">
+  <!-- Hero Header -->
+  <div class="contact-hero">
+    <div class="contact-hero-content">
+      <div class="contact-badge">
+        <span class="badge-text">📞 Entre em Contato</span>
+      </div>
+      <h1 class="contact-title">Fale <span class="title-highlight">Conosco</span></h1>
+      <p class="contact-subtitle">
+        Estamos aqui para atendê-lo! Entre em contato para reservas,
+        dúvidas ou sugestões. Sua experiência é nossa prioridade.
+      </p>
+    </div>
+  </div>  <!-- Contact Container -->
+  <div class="contact-container">
+    <!-- Quick Contact Buttons -->
+    <div class="quick-contact">
+      <h2>Contato Rápido</h2>
+      <div class="quick-buttons">
+        <button class="quick-btn reservation" (click)="openWhatsApp(reservationWhatsApp)">
+          <div class="btn-icon">📅</div>
+          <div class="btn-content">
+            <h3>Fazer Reserva</h3>
+            <p>WhatsApp direto</p>
+          </div>
+        </button>
+        <button class="quick-btn menu" (click)="openWhatsApp(menuWhatsApp)">
+          <div class="btn-icon">🍽️</div>
+          <div class="btn-content">
+            <h3>Ver Cardápio</h3>
+            <p>WhatsApp direto</p>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="contact-main">
+      <!-- Contact Form -->
+      <div class="contact-form-section">
+        <h2>Envie uma Mensagem</h2>
+        <p>Preencha o formulário abaixo e retornaremos em breve</p>
+
+        <!-- Success Message -->
+        <div class="success-message" *ngIf="showSuccessMessage">
+          <div class="success-icon">✅</div>
+          <h3>Mensagem enviada com sucesso!</h3>
+          <p>Obrigado pelo contato. Retornaremos em breve.</p>
+        </div>
+
+        <!-- Contact Form -->
+        <form class="contact-form" (ngSubmit)="onSubmit()" *ngIf="!showSuccessMessage">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Nome Completo *</label>
+              <input
+                type="text"
+                id="name"
+                [(ngModel)]="contactForm.name"
+                name="name"
+                placeholder="Seu nome completo"
+                required>
+            </div>
+            <div class="form-group">
+              <label for="email">E-mail *</label>
+              <input
+                type="email"
+                id="email"
+                [(ngModel)]="contactForm.email"
+                name="email"
+                placeholder="seu@email.com"
+                required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Telefone</label>
+              <input
+                type="tel"
+                id="phone"
+                [(ngModel)]="contactForm.phone"
+                name="phone"
+                placeholder="(11) 99999-9999">
+            </div>
+            <div class="form-group">
+              <label for="subject">Assunto *</label>
+              <select
+                id="subject"
+                [(ngModel)]="contactForm.subject"
+                name="subject"
+                required>
+                <option value="">Selecione um assunto</option>
+                <option value="reserva">Reserva</option>
+                <option value="evento">Eventos Especiais</option>
+                <option value="cardapio">Dúvidas sobre Cardápio</option>
+                <option value="feedback">Feedback</option>
+                <option value="outro">Outro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Mensagem *</label>
+            <textarea
+              id="message"
+              [(ngModel)]="contactForm.message"
+              name="message"
+              placeholder="Escreva sua mensagem aqui..."
+              rows="5"
+              required></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="submit-btn"
+            [disabled]="!isFormValid() || isSubmitting">
+            <span *ngIf="!isSubmitting">
+              <span class="btn-icon">📤</span>
+              Enviar Mensagem
+            </span>
+            <span *ngIf="isSubmitting" class="loading">
+              <span class="spinner"></span>
+              Enviando...
+            </span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="contact-info-section">
+        <h2>Informações de Contato</h2>
+        <div class="contact-info-grid">
+          <div
+            *ngFor="let info of contactInfo"
+            class="info-card"
+            [class.clickable]="info.link"
+            (click)="info.link && openLink(info.link)">
+            <div class="info-icon">{{ info.icon }}</div>
+            <div class="info-content">
+              <h3>{{ info.title }}</h3>
+              <p>{{ info.info }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map placeholder -->
+        <div class="map-section">
+          <h3>Localização</h3>
+          <div class="map-placeholder">
+            <div class="map-icon">🗺️</div>
+            <p>Rua das Flores, 123 - Centro<br>São Paulo - SP</p>
+            <button class="map-btn" (click)="openLink('https://maps.google.com/?q=Rua+das+Flores+123+Centro+São+Paulo')">
+              Ver no Google Maps
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,115 @@
+<!-- Navbar -->
+<app-navebar></app-navebar>
+
+<!-- Menu Section -->
+<section class="menu-section">
+  <!-- Hero Header -->
+  <div class="menu-hero">
+    <div class="menu-hero-background">
+      <div class="menu-hero-overlay"></div>
+    </div>
+    <div class="menu-hero-content">
+      <div class="menu-badge">
+        <span class="badge-text">✨ Cardápio Premiado</span>
+      </div>
+      <h1 class="menu-title">Nosso <span class="title-highlight">Menu</span></h1>
+      <p class="menu-subtitle">
+        Uma experiência gastronômica única com ingredientes selecionados
+        e técnicas culinárias de excelência
+      </p>
+    </div>
+  </div>
+
+  <!-- Menu Container -->
+  <div class="menu-container">
+    <!-- Category Filter -->
+    <div class="category-filter">
+      <div class="filter-header">
+        <h2>Categorias</h2>
+        <p>Explore nossos sabores</p>
+      </div>
+
+      <div class="category-grid">
+        <button
+          *ngFor="let category of categories"
+          (click)="selectCategory(category.id)"
+          [class.active]="selectedCategory === category.id"
+          class="category-card">
+          <div class="category-icon">{{ category.icon }}</div>
+          <div class="category-info">
+            <h3>{{ category.name }}</h3>
+            <p>{{ category.description }}</p>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menu Items -->
+    <div class="menu-content">
+      <div class="menu-header">
+        <h2>{{ currentCategoryName }}</h2>
+        <p class="item-count">{{ filteredItems.length }} pratos disponíveis</p>
+      </div>
+
+      <div class="menu-grid">
+        <div
+          *ngFor="let item of filteredItems; let i = index"
+          class="menu-item"
+          [style.animation-delay.ms]="i * 100">
+
+          <!-- Chef's Special Badge -->
+          <div class="chef-badge" *ngIf="item.chef_special">
+            <span>👨‍🍳 Chef's Special</span>
+          </div>
+
+          <!-- Dietary Badges -->
+          <div class="dietary-badges" *ngIf="item.dietary && item.dietary.length > 0">
+            <span *ngFor="let diet of item.dietary" class="dietary-badge">
+              {{ diet === 'vegetariano' ? '🌱' : diet }}
+            </span>
+          </div>
+
+          <!-- Item Image -->
+          <div class="item-image">
+            <img [src]="item.image" [alt]="item.name" loading="lazy">
+          </div>
+
+          <!-- Item Content -->
+          <div class="item-content">
+            <div class="item-header">
+              <h3 class="item-name">{{ item.name }}</h3>
+              <div class="item-price">R$ {{ item.price.toFixed(2).replace('.', ',') }}</div>
+            </div>
+
+            <p class="item-description">{{ item.description }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Empty State -->
+      <div class="empty-state" *ngIf="filteredItems.length === 0">
+        <div class="empty-icon">🍽️</div>
+        <h3>Nenhum prato encontrado</h3>
+        <p>Tente selecionar outra categoria</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom CTA -->
+  <div class="menu-cta">
+    <div class="cta-content">
+      <h2>Pronto para fazer seu pedido?</h2>
+      <p>Entre em contato conosco ou faça uma reserva</p>
+      <div class="cta-actions">
+        <button class="btn btn-primary btn-large">
+          <span class="btn-icon">📞</span>
+          Fazer Reserva
+        </button>
+        <button class="btn btn-secondary btn-large">
+          <span class="btn-icon">💬</span>
+          WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

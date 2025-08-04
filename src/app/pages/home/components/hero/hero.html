@@ -1,0 +1,121 @@
+<section class="hero">
+  <!-- Background com overlay -->
+  <div class="hero-background">
+    <div class="hero-overlay"></div>
+  </div>
+
+  <!-- Conteúdo principal -->
+  <div class="hero-container">
+    <div class="hero-content">
+      <!-- Badge de destaque -->
+      <div class="hero-badge">
+        <span class="badge-text">✨ Mais de 10 anos de tradição</span>
+      </div>
+
+      <!-- Título principal -->
+      <h1 class="hero-title">
+        Sabores <span class="title-highlight">Autênticos</span>
+        <br class="desktop-break">
+        que Despertam <span class="title-highlight">Memórias</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="hero-subtitle">
+        No J&B Restaurante, cada prato conta uma história. Experimente nossa culinária
+        brasileira contemporânea feita com ingredientes frescos e muito amor.
+      </p>
+
+      <!-- Botões de ação -->
+      <div class="hero-actions">
+        <button class="btn btn-primary" (click)="scrollToMenu()">
+          <span>Ver Cardápio</span>
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none">
+            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <button class="btn btn-secondary" (click)="makeReservation()">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none">
+            <path d="M3 5H21L19 17H5L3 5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M7 5V3H17V5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Fazer Reserva</span>
+        </button>
+      </div>
+
+      <!-- Estatísticas rápidas -->
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">150+</span>
+          <span class="stat-label">Pratos</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">4.9</span>
+          <span class="stat-label">⭐ Nota</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">5K+</span>
+          <span class="stat-label">Clientes</span>
+        </div>
+      </div>
+
+      <!-- Pratos em destaque (preview) -->
+      <div class="hero-featured">
+        <p class="featured-label">Nossos pratos mais pedidos:</p>
+        <div class="featured-dishes">
+          <div class="dish-card" *ngFor="let dish of featuredDishes; let i = index"
+               [style.animation-delay.ms]="i * 200">
+            <div class="dish-image">
+              <img [src]="dish.image" [alt]="dish.name">
+            </div>
+            <div class="dish-info">
+              <h4>{{ dish.name }}</h4>
+              <p>{{ dish.price }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Informações laterais -->
+    <div class="hero-sidebar">
+      <div class="info-card">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="info-content">
+          <h4>Horário</h4>
+          <p>Seg - Dom<br>11h às 23h</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M21 10C21 17 12 23 12 23S3 17 3 10C3 5 7 1 12 1S21 5 21 10Z" stroke="currentColor" stroke-width="2"/>
+            <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="info-content">
+          <h4>Local</h4>
+          <p>Rua dos Sabores, 123<br>Centro - SP</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M22 16.92V19.92C22 20.52 21.52 21 20.92 21C9.4 21 0 11.6 0 0.08C0 -0.52 0.48 -1 1.08 -1H4.08C4.68 -1 5.16 -0.52 5.16 0.08V3.08C5.16 3.68 4.68 4.16 4.08 4.16H2.16C2.16 8.36 5.64 11.84 9.84 11.84V9.92C9.84 9.32 10.32 8.84 10.92 8.84H13.92C14.52 8.84 15 9.32 15 9.92V12.92C15 13.52 14.52 14 13.92 14H10.92" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="info-content">
+          <h4>Reservas</h4>
+          <p>(11) 9999-9999</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

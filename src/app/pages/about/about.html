@@ -1,0 +1,171 @@
+<!-- Navbar -->
+<app-navebar></app-navebar>
+
+<!-- About Section -->
+<section class="about-section">
+  <!-- Hero Header -->
+  <div class="about-hero">
+    <div class="about-hero-background">
+      <div class="about-hero-overlay"></div>
+    </div>
+    <div class="about-hero-content">
+      <div class="about-badge">
+        <span class="badge-text">✨ Nossa História</span>
+      </div>
+      <h1 class="about-title">Sobre o <span class="title-highlight">J&B</span></h1>
+      <p class="about-subtitle">
+        Uma jornada de sabores que começou com um sonho e se tornou
+        uma paixão compartilhada com milhares de pessoas
+      </p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="about-container">
+    <!-- Our Story -->
+    <div class="story-section">
+      <div class="story-content">
+        <div class="story-text">
+          <h2>Nossa Jornada</h2>
+          <p class="story-intro">
+            O J&B Restaurante nasceu em 2014 do sonho de João e Beatriz,
+            um casal apaixonado pela gastronomia brasileira e pela arte de bem receber.
+          </p>
+          <p>
+            Começamos com uma pequena cozinha e grandes ambições: criar um espaço onde
+            os sabores autênticos do Brasil se encontrassem com técnicas culinárias
+            modernas, proporcionando experiências gastronômicas inesquecíveis.
+          </p>
+          <p>
+            Ao longo de <strong>{{ stats.yearsOfExperience }} anos</strong>, crescemos junto com nossa comunidade,
+            sempre mantendo nossos valores de qualidade, hospitalidade e amor pela culinária.
+            Hoje, somos orgulhosos de ter servido mais de <strong>{{ stats.happyCustomers }}+ clientes</strong>
+            e de continuar inovando a cada dia.
+          </p>
+        </div>
+        <div class="story-image">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=500&fit=crop"
+               alt="Interior do J&B Restaurante"
+               loading="lazy">
+          <div class="image-overlay">
+            <div class="overlay-text">
+              <h3>10 Anos de Tradição</h3>
+              <p>Criando memórias através da gastronomia</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-section">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">🎂</div>
+          <div class="stat-number">{{ stats.yearsOfExperience }}+</div>
+          <div class="stat-label">Anos de Experiência</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">😊</div>
+          <div class="stat-number">{{ stats.happyCustomers }}+</div>
+          <div class="stat-label">Clientes Felizes</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🍽️</div>
+          <div class="stat-number">{{ stats.dishesServed }}+</div>
+          <div class="stat-label">Pratos Servidos</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">👥</div>
+          <div class="stat-number">{{ stats.teamMembers }}+</div>
+          <div class="stat-label">Membros da Equipe</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Our Values -->
+    <div class="values-section">
+      <div class="section-header">
+        <h2>Nossos Valores</h2>
+        <p>Os princípios que guiam cada prato, cada atendimento, cada momento no J&B</p>
+      </div>
+      <div class="values-grid">
+        <div *ngFor="let value of values; let i = index"
+             class="value-card"
+             [style.animation-delay.ms]="i * 150">
+          <div class="value-icon">{{ value.icon }}</div>
+          <h3>{{ value.title }}</h3>
+          <p>{{ value.description }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team Section -->
+    <div class="team-section">
+      <div class="section-header">
+        <h2>Nossa Equipe</h2>
+        <p>Conheça os talentos por trás dos sabores que você ama</p>
+      </div>
+      <div class="team-grid">
+        <div *ngFor="let member of teamMembers; let i = index"
+             class="team-card"
+             [style.animation-delay.ms]="i * 200">
+          <div class="member-image">
+            <img [src]="member.image" [alt]="member.name" loading="lazy">
+            <div class="member-overlay">
+              <div class="member-specialty">{{ member.specialty }}</div>
+            </div>
+          </div>
+          <div class="member-info">
+            <h3>{{ member.name }}</h3>
+            <div class="member-role">{{ member.role }}</div>
+            <p>{{ member.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Achievements -->
+    <div class="achievements-section">
+      <div class="section-header">
+        <h2>Nossos Reconhecimentos</h2>
+        <p>Prêmios e certificações que refletem nosso comprometimento com a excelência</p>
+      </div>
+      <div class="achievements-grid">
+        <div *ngFor="let achievement of achievements; let i = index"
+             class="achievement-card"
+             [style.animation-delay.ms]="i * 100">
+          <div class="achievement-icon">{{ achievement.icon }}</div>
+          <div class="achievement-content">
+            <div class="achievement-header">
+              <h3>{{ achievement.title }}</h3>
+              <span class="achievement-year" *ngIf="achievement.year">{{ achievement.year }}</span>
+            </div>
+            <p>{{ achievement.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="cta-section">
+      <div class="cta-content">
+        <h2>Venha Fazer Parte da Nossa História</h2>
+        <p>
+          Cada refeição no J&B é uma oportunidade de criar novas memórias.
+          Venha nos visitar e descobrir por que somos apaixonados pelo que fazemos.
+        </p>
+        <div class="cta-buttons">
+          <a routerLink="/menu" class="btn btn-primary">
+            <span class="btn-icon">🍽️</span>
+            Ver Nosso Menu
+          </a>
+          <a routerLink="/contato" class="btn btn-secondary">
+            <span class="btn-icon">📞</span>
+            Fazer Reserva
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
