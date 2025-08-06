@@ -236,9 +236,9 @@ export class Reservation {
       console.log('Reserva enviada:', this.reservationForm);
       this.showSuccess = true;
 
-      // Reset form after 3 seconds
+      // Redirecionar para o menu principal após 3 segundos
       setTimeout(() => {
-        this.resetForm();
+        window.location.href = '/';
       }, 3000);
 
     } catch (error) {

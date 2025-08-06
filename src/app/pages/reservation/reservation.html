@@ -296,8 +296,7 @@
           <span *ngIf="!isSubmitting">Confirmar Reserva</span>
           <span *ngIf="isSubmitting">Enviando...</span>
           <svg *ngIf="!isSubmitting" viewBox="0 0 24 24" fill="none">
-            <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M22 2L15 22L11 13L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           <div *ngIf="isSubmitting" class="loading-spinner"></div>
         </button>
@@ -327,9 +326,6 @@
           <strong>Mesa:</strong> {{ getSelectedTableName() }}
         </div>
       </div>
-      <button class="btn btn-primary" (click)="resetForm()" type="button">
-        Nova Reserva
-      </button>
     </div>
   </div>
 </div>
