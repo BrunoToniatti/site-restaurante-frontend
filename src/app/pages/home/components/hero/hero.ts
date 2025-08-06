@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 interface FeaturedDish {
   name: string;
@@ -9,7 +10,7 @@ interface FeaturedDish {
 
 @Component({
   selector: 'app-hero',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './hero.html',
   styleUrl: './hero.scss'
 })
