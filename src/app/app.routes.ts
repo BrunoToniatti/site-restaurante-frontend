@@ -3,6 +3,7 @@ import { Home } from './pages/home/home';
 import { Menu } from './pages/menu/menu';
 import { Contact } from './pages/contact/contact';
 import { About } from './pages/about/about';
+import { Reservation } from './pages/reservation/reservation';
 
 export const routes: Routes = [
   {
@@ -20,5 +21,10 @@ export const routes: Routes = [
   {
     path: 'sobre',
     component: About
+  },
+  {
+    path: 'reserva',
+    component: Reservation
   }
+
 ];

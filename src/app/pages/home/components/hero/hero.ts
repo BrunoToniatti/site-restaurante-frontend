@@ -33,14 +33,11 @@ export class Hero {
   ];
 
   scrollToMenu(): void {
-    const menuSection = document.getElementById('menu');
-    if (menuSection) {
-      menuSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    window.location.href='/menu';
   }
 
   makeReservation(): void {
     // Simulação de reserva - pode integrar com WhatsApp ou sistema de reservas
-    window.open('https://wa.me/5511999999999?text=Olá! Gostaria de fazer uma reserva no J&B Restaurante.', '_blank');
+    window.location.href='/reserva';
   }
 }
